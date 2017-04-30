@@ -23,7 +23,9 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Serial port device access',
+        'Topic :: Communications',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Python Modules',
 
         'License :: OSI Approved :: BSD License',
 
