@@ -1,5 +1,5 @@
 Python Library for Adafruit USB / Serial LCD Backpack
-=======================
+=====================================================
 
 This library is a simple wrapper intended to help send text and commands to the Adafruit USB / Serial LCD Backpack.
 
@@ -11,7 +11,7 @@ The commands suported are those listed here: https://learn.adafruit.com/usb-plus
 ...with the exception of those relating to saving, storing and using custom characters.
 
 Installation
-===
+------------
 
 .. code:: bash
 
@@ -19,7 +19,7 @@ Installation
 
 
 Example usage
-===
+-------------
 
 .. code:: bash
 
