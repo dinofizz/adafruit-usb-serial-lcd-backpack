@@ -234,6 +234,11 @@ class LcdBackpack:
         self._ser.write(str.encode(string))
 
     def set_splash_screen(self, string, lcd_chars):
+        """
+        Sets the LCD splash screen. 
+        :param string: the text to be displayed at LCD start up
+        :param lcd_chars: the total characters of the LCD display
+        """
         self._write_command([0x40])
         self._ser.write('{{0: <{}}}'.format(lcd_chars).format(string).encode())
         self._ser.write(bytes(0x00))
