@@ -36,7 +36,8 @@ class LcdBackpack:
     SET_CURSOR_HOME = 0x48
     SET_CURSOR_POSITION = 0x47
     SET_BRIGHTNESS = 0x99
-    SET_CONTRAST = 0x50
+    SET_CONTRAST      = 0x50
+    SET_SPLASH_SCREEN = 0x40
     DISPLAY_ON = 0x42
     DISPLAY_OFF = 0x46
     COMMAND_START = 0xFE
@@ -241,7 +242,6 @@ class LcdBackpack:
         """
         self._write_command([0x40])
         self._ser.write('{{0: <{}}}'.format(lcd_chars).format(string).encode())
-        self._ser.write(bytes(0x00))
 
 
     def _write_command(self, command_list):
