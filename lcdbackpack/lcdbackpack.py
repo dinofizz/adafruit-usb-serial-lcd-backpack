@@ -240,7 +240,7 @@ class LcdBackpack:
         :param string: the text to be displayed at LCD start up
         :param lcd_chars: the total characters of the LCD display
         """
-        self._write_command([0x40])
+        self._write_command(LcdBackpack.SET_SPLASH_SCREEN)
         self._ser.write('{{0: <{}}}'.format(lcd_chars).format(string).encode())
 
 
