@@ -13,8 +13,7 @@ Test python sketch for Adafruit USB+Serial LCD backpack
 ---> http://www.adafruit.com/category/63_96
 
 Adafruit invests time and resources providing this open source code, 
-please support Adafruit and open-source hardware by purchasing 
-products from Adafruit!
+please support Adafruit and open-source hardware by purchasing products from Adafruit!
 
 Written by Limor Fried/Ladyada  for Adafruit Industries.  
 BSD license, check license.txt for more information
@@ -38,6 +37,7 @@ class LcdBackpack:
     SET_CURSOR_POSITION = 0x47
     SET_BRIGHTNESS = 0x99
     SET_CONTRAST = 0x50
+    SET_SPLASH_SCREEN = 0x40
     DISPLAY_ON = 0x42
     DISPLAY_OFF = 0x46
     COMMAND_START = 0xFE
@@ -233,6 +233,16 @@ class LcdBackpack:
             raise serial.SerialException('Not connected')
 
         self._ser.write(str.encode(string))
+
+    def set_splash_screen(self, string, lcd_chars):
+        """
+        Sets the LCD splash screen. 
+        :param string: the text to be displayed at LCD start up
+        :param lcd_chars: the total characters of the LCD display
+        """
+        self._write_command(LcdBackpack.SET_SPLASH_SCREEN)
+        self._ser.write('{{0: <{}}}'.format(lcd_chars).format(string).encode())
+
 
     def _write_command(self, command_list):
         """
